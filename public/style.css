@@ -1,7 +1,13 @@
-* { box-sizing: border-box; }
-html, body { height: 100%; }
+* {
+  box-sizing: border-box;
+}
 
-:root{
+html,
+body {
+  height: 100%;
+}
+
+:root {
   --font-en: "Afacad", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-ko: "Gowun Dodum", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
 
@@ -11,13 +17,13 @@ html, body { height: 100%; }
   --stroke: rgba(17, 24, 39, 0.10);
 }
 
-body{
+body {
   margin: 0;
   font-family: var(--font-en), var(--font-ko);
   background: #ffffff;
 }
 
-.chat-app{
+.chat-app {
   width: 100vw;
   height: 100dvh;
   min-height: 0;
@@ -36,32 +42,26 @@ body{
 }
 
 /* 원 2개 + blur */
-.chat-app::before{
+.chat-app::before {
   content: "";
   position: absolute;
   pointer-events: none;
   inset: 0;
   z-index: 0;
 
-    background:
+  background:
     /* 핑크 */
-    radial-gradient(
-      680px 540px
-      at calc(50% - 120px) 88%,
+    radial-gradient(680px 540px at calc(50% - 120px) 88%,
       rgba(255, 188, 223, 0.60) 0%,
-      rgba(255, 188, 223, 0.00) 62%
-    ),
+      rgba(255, 188, 223, 0.00) 62%),
 
     /* 블루 */
-    radial-gradient(
-      680px 540px
-      at calc(50% + 120px) 88%,
+    radial-gradient(680px 540px at calc(50% + 120px) 88%,
       rgba(165, 185, 255, 0.60) 0%,
-      rgba(165, 185, 255, 0.00) 62%
-    );
+      rgba(165, 185, 255, 0.00) 62%);
 
-    /* 베이스 화이트 */
-    /*linear-gradient(
+  /* 베이스 화이트 */
+  /*linear-gradient(
       180deg,
       rgba(255,255,255,1) 0%,
       rgba(255,255,255,1) 45%,
@@ -72,7 +72,7 @@ body{
   opacity: 1;
 }
 
-.chat-area{
+.chat-area {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
@@ -80,15 +80,18 @@ body{
   background: transparent;
 }
 
-.chat-area::-webkit-scrollbar { width: 10px; }
-.chat-area::-webkit-scrollbar-thumb{
+.chat-area::-webkit-scrollbar {
+  width: 10px;
+}
+
+.chat-area::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.12);
   border-radius: 999px;
   border: 3px solid transparent;
   background-clip: padding-box;
 }
 
-.empty-hero{
+.empty-hero {
   min-height: 320px;
   display: grid;
   place-items: center;
@@ -96,22 +99,23 @@ body{
   gap: 12px;
   margin-top: 54px;
   color: var(--text);
+  transition: opacity 0.5s ease;
 }
 
-.empty-hero .sparkle{
+.empty-hero .sparkle {
   width: 40px;
   height: 40px;
   display: grid;
   place-items: center;
   border-radius: 999px;
-  background: rgba(255,255,255,0.65);
+  background: rgba(255, 255, 255, 0.65);
   border: 1px solid var(--stroke);
   backdrop-filter: blur(10px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   font-size: 18px;
 }
 
-.empty-hero h1{
+.empty-hero h1 {
   margin: 0;
   font-size: 18px;
   font-weight: 500;
@@ -119,7 +123,7 @@ body{
   opacity: 0.9;
 }
 
-.input-area{
+.input-area {
   display: flex;
   justify-content: center;
   background: transparent;
@@ -129,21 +133,21 @@ body{
   padding: 18px 24px calc(18px + env(safe-area-inset-bottom));
 }
 
-.input-row{
+.input-row {
   width: 100%;
   max-width: 980px;
   display: flex;
   gap: 12px;
 }
 
-.input-area input{
+.input-area input {
   flex: 1;
   height: 54px;
   padding: 0 16px;
   border-radius: 14px;
 
   border: 1px solid var(--stroke);
-  background: rgba(255,255,255,0.70);
+  background: rgba(255, 255, 255, 0.70);
   backdrop-filter: blur(10px);
 
   outline: none;
@@ -151,22 +155,22 @@ body{
   color: rgba(17, 24, 39, 0.85);
 }
 
-.input-area input::placeholder{
+.input-area input::placeholder {
   color: rgba(17, 24, 39, 0.40);
 }
 
-.input-area input:focus{
+.input-area input:focus {
   border-color: rgba(99, 102, 241, 0.30);
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
 }
 
-.input-area button{
+.input-area button {
   width: 54px;
   height: 54px;
   border-radius: 14px;
 
   border: 1px solid var(--stroke);
-  background: rgba(255,255,255,0.70);
+  background: rgba(255, 255, 255, 0.70);
   backdrop-filter: blur(10px);
 
   cursor: pointer;
@@ -177,13 +181,13 @@ body{
   transition: transform 0.05s ease;
 }
 
-.input-area button img{
+.input-area button img {
   width: 22px;
   height: 22px;
   object-fit: contain;
   display: block;
 }
 
-.input-area button:active{
+.input-area button:active {
   transform: scale(0.98);
 }

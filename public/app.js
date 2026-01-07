@@ -3,6 +3,7 @@ import { createChatMessage } from "./components/Bubble/chatComponent.js";
 const input = document.getElementById("chatInput");
 const sendButton = document.getElementById("sendButton");
 const chatArea = document.getElementById("chatArea");
+const hero = document.getElementById("emptyHero");
 
 function addBubble(message, sender) {
   const html = createChatMessage({
@@ -30,6 +31,8 @@ sendButton.addEventListener("click", async () => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message }),
   });
+
+  hero.style.opacity = "0";
 
   const data = await clovaResponse.json();
 
