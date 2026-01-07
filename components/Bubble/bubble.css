@@ -1,30 +1,142 @@
-.bubble {
-  position: relative;
-  max-width: 240px;
-  padding: 12px 16px;
-  border-radius: 12px;
-  background-color: #333;
-  color: #fff;
+.msg_chat{
+  padding: 28px 24px;
+  background: #f3f3f3;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;
+
+  /* tokens */
+  --msg_badge_size: 38px;
+  --msg_meta_gap: 10px;
+  --msg_indent: calc(var(--msg_badge_size) + var(--msg_meta_gap) + 30px);
+
+  --msg_border: 1px solid #dedede;
+  --msg_shadow: 0 10px 24px rgba(0,0,0,.12);
+
+  --msg_left_text: #6b7280;
+  --msg_time_color: rgba(120,140,160,.85);
+  --msg_right_bg: #0067ac;
+}
+
+/* =========================
+   LEFT GROUP
+========================= */
+.msg_chat .msg_left{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+
+/* meta line */
+.msg_chat .msg_meta{
+  display: inline-flex;
+  align-items: center;
+  gap: var(--msg_meta_gap);
+  margin-left: 6px;
+}
+
+.msg_chat .msg_badge{
+  width: var(--msg_badge_size);
+  height: var(--msg_badge_size);
+  border-radius: 999px;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  border: var(--msg_border);
+}
+
+.msg_chat .msg_badge_icon{
+  font-size: 18px;
+  line-height: 1;
+}
+
+.msg_chat .msg_meta_text{
+  color: rgba(0,0,0,.85);
+  font-size: 16px;
+}
+
+/* message row */
+.msg_chat .msg_row{
+  display: inline-flex;
+  align-items: flex-end; /* bubble + time bottom aligned */
+  gap: 18px;
+  margin-left: var(--msg_indent);
+}
+
+.msg_chat .msg_row_with_time{
+  align-items: flex-end;
+}
+
+/* time */
+.msg_chat .msg_time{
+  color: var(--msg_time_color);
   font-size: 14px;
-  line-height: 1.4;
+  line-height: 1;
+  white-space: nowrap;
 }
 
-/* 왼쪽 */
-.bubble.left {
-  top: 50%;
-  left: -8px;
-  transform: translateY(-50%);
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-right: 8px solid #333;
+/* =========================
+   BUBBLES (base)
+========================= */
+.msg_chat .msg_bubble{
+  background: #fff;
+  border: var(--msg_border);
 }
 
-/* 오른쪽 */
-.bubble.right {
-  top: 50%;
-  right: -8px;
-  transform: translateY(-50%);
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-left: 8px solid #333;
+/* left pill bubble */
+.msg_chat .msg_bubble_pill{
+  padding: 20px 46px;
+  border-radius: 999px;
+  color: var(--msg_left_text);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.15;
+  max-width: 420px;
+}
+
+/* left big bubble (corner tuning) */
+.msg_chat .msg_bubble_card{
+  position: relative;
+  max-width: 540px;
+  padding: 26px 34px;
+
+  color: var(--msg_left_text);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.45;
+
+  /* 꼭짓점/코너 튜닝 (스샷 느낌) */
+  border-radius: 28px;               /* 기본 */
+  border-top-left-radius: 32px;      /* 위는 더 둥글게 */
+  border-top-right-radius: 32px;
+
+  border-bottom-right-radius: 32px;  /* 오른쪽 아래 더 둥글 */
+  border-bottom-left-radius: 16px;   /* 왼쪽 아래 덜 둥글 → 살짝 “각” 느낌 */
+}
+
+/* =========================
+   RIGHT MESSAGE
+========================= */
+.msg_chat .msg_right{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 18px;
+  width: 100%;
+  margin-top: 46px;
+}
+
+/* right bubble */
+.msg_chat .msg_bubble_right{
+  padding: 20px 34px;
+  border-radius: 999px;
+
+  background: var(--msg_right_bg);
+  border: none;
+
+  color: #fff;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.15;
+  max-width: 520px;
 }
