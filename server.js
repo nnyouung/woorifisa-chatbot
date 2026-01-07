@@ -22,9 +22,6 @@ app.use(json());
 
 app.post("/chat", async (request, response) => {
   try {
-    console.log("request.body:", request.body);
-    console.log("message:", request.body?.message);
-    console.log("message type:", typeof request.body?.message);
     const { message } = request.body || {};
 
     const bodyToClova = {
@@ -75,7 +72,6 @@ app.post("/chat", async (request, response) => {
       message: botMessage,
       timestamp: botTimestamp,
     };
-    console.log(data);
 
     return response.json(data);
   } catch (error) {

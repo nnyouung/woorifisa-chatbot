@@ -4,7 +4,7 @@ const sendButton = document.getElementById("sendButton");
 sendButton.addEventListener("click", async () => {
   const message = input.value;
   if (!message.trim()) return;
-  console.log(message);
+  console.log("my message: ", message);
 
   const clovaResponse = await fetch("/chat", {
     method: "POST",
@@ -15,6 +15,6 @@ sendButton.addEventListener("click", async () => {
   const data = await clovaResponse.json();
 
   input.value = "";
-  console.log(data.message);
-  // TODO: data.message 채팅 버블에 띄우기
+  console.log("chatbot message: ", data.message);
+  // TODO: data.message 챗봇 쪽 채팅 버블에 띄우기
 });
