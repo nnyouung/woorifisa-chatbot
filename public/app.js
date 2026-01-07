@@ -76,3 +76,8 @@ sendButton.addEventListener("click", async () => {
   addBubble(data.message, "chatbot");
   console.log("chatbot message: ", data.message);
 });
+
+// 엔터로 전송
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") sendButton.click();
+});
