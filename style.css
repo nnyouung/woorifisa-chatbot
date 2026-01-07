@@ -1,0 +1,15 @@
+*{box-sizing: border-box;}
+
+html, body{height: 100%;}
+
+:root{
+    --font-en: "Afacad", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-ko: "Gowun Dodum", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+
+    --border: #E3E3E3;
+    --text: #454B58;
+    --subtext: #667085;
+    --bg: #ffffff;
+    --chat-bg: #E3E3E3;
+    --input-border: #e6ebf2;
+}
