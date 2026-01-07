@@ -10,7 +10,7 @@ function debounce(callback, delay) {
 
 sendButton.addEventListener("click", async () => {
   const message = input.value;
-  debounceTranslate(async () => {
+  debounce(async () => {
     if (!message.trim()) return;
 
     const clovaResponse = await fetch("/chat", {
