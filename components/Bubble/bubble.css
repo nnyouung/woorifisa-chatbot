@@ -1,142 +1,93 @@
-.msg_chat{
-  padding: 28px 24px;
-  background: #f3f3f3;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;
-
-  /* tokens */
-  --msg_badge_size: 38px;
-  --msg_meta_gap: 10px;
-  --msg_indent: calc(var(--msg_badge_size) + var(--msg_meta_gap) + 30px);
-
-  --msg_border: 1px solid #dedede;
-  --msg_shadow: 0 10px 24px rgba(0,0,0,.12);
-
-  --msg_left_text: #6b7280;
-  --msg_time_color: rgba(120,140,160,.85);
-  --msg_right_bg: #0067ac;
-}
-
-/* =========================
-   LEFT GROUP
-========================= */
-.msg_chat .msg_left{
+/* 전체 컨테이너: 메시지들을 수직으로 나열 */
+.chat-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  width: 100%;
+  gap: 24px;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: sans-serif;
 }
 
-/* meta line */
-.msg_chat .msg_meta{
-  display: inline-flex;
-  align-items: center;
-  gap: var(--msg_meta_gap);
-  margin-left: 6px;
-}
-
-.msg_chat .msg_badge{
-  width: var(--msg_badge_size);
-  height: var(--msg_badge_size);
-  border-radius: 999px;
-  background: #fff;
-  display: grid;
-  place-items: center;
-  border: var(--msg_border);
-}
-
-.msg_chat .msg_badge_icon{
-  font-size: 18px;
-  line-height: 1;
-}
-
-.msg_chat .msg_meta_text{
-  color: rgba(0,0,0,.85);
-  font-size: 16px;
-}
-
-/* message row */
-.msg_chat .msg_row{
-  display: inline-flex;
-  align-items: flex-end; /* bubble + time bottom aligned */
-  gap: 18px;
-  margin-left: var(--msg_indent);
-}
-
-.msg_chat .msg_row_with_time{
-  align-items: flex-end;
-}
-
-/* time */
-.msg_chat .msg_time{
-  color: var(--msg_time_color);
-  font-size: 14px;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-/* =========================
-   BUBBLES (base)
-========================= */
-.msg_chat .msg_bubble{
-  background: #fff;
-  border: var(--msg_border);
-}
-
-/* left pill bubble */
-.msg_chat .msg_bubble_pill{
-  padding: 20px 46px;
-  border-radius: 999px;
-  color: var(--msg_left_text);
-  font-size: 28px;
-  font-weight: 500;
-  line-height: 1.15;
-  max-width: 420px;
-}
-
-/* left big bubble (corner tuning) */
-.msg_chat .msg_bubble_card{
-  position: relative;
-  max-width: 540px;
-  padding: 26px 34px;
-
-  color: var(--msg_left_text);
-  font-size: 28px;
-  font-weight: 500;
-  line-height: 1.45;
-
-  /* 꼭짓점/코너 튜닝 (스샷 느낌) */
-  border-radius: 28px;               /* 기본 */
-  border-top-left-radius: 32px;      /* 위는 더 둥글게 */
-  border-top-right-radius: 32px;
-
-  border-bottom-right-radius: 32px;  /* 오른쪽 아래 더 둥글 */
-  border-bottom-left-radius: 16px;   /* 왼쪽 아래 덜 둥글 → 살짝 “각” 느낌 */
-}
-
-/* =========================
-   RIGHT MESSAGE
-========================= */
-.msg_chat .msg_right{
+/* 개별 메시지: 양 끝으로 밀기 */
+.message {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  gap: 18px;
+  flex-direction: column;
   width: 100%;
-  margin-top: 46px;
+  margin-bottom: 20px; /* 메시지 간 간격 */
 }
 
-/* right bubble */
-.msg_chat .msg_bubble_right{
-  padding: 20px 34px;
-  border-radius: 999px;
+.message.left {
+  align-items: flex-start; /* 왼쪽 정렬 */
+}
 
-  background: var(--msg_right_bg);
-  border: none;
+.message.right {
+  align-items: flex-end; /* 오른쪽 정렬 */
+}
 
+/* 메타 정보 (뱃지) */
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.badge {
+  background: #f0f0f0;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+/* 메시지 로우 설정 */
+.message-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+/* 공통 말풍선 스타일 */
+.bubble {
+  display: inline-block;
+  position: relative;
+  max-width: 400px; /* 가독성을 위해 너비 제한 */
+  padding: 12px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4; /* 줄 간격 */
+  word-break: break-word;
+}
+
+/* 왼쪽 말풍선 */
+.message.left .bubble {
+  background: #fff;
+  border: 1px solid #dedede;
+  color: #4b5563;
+  border-radius: 2px 22px 22px 22px;
+}
+
+/* 오른쪽 말풍선 */
+.message.right .bubble {
+  background: #0067ac;
   color: #fff;
-  font-size: 26px;
-  font-weight: 600;
-  line-height: 1.15;
-  max-width: 520px;
+  border-radius: 22px 2px 22px 22px;
+}
+
+/* 변형 스타일 (Pill, Card) */
+.bubble.pill {
+  border-radius: 999px;
+}
+
+.bubble.card {
+  border-radius: 20px;
+  border-bottom-left-radius: 4px;
+}
+
+/* 시간 스타일 */
+.time {
+  color: #94a3b8;
+  font-size: 12px;
+  margin-bottom: 4px;
 }

@@ -1,35 +1,44 @@
 <link rel="stylesheet" href="bubble.css" />
 
-<section class="msg_chat" aria-label="Chat UI">
-  <!-- LEFT GROUP -->
-  <div class="msg_left">
-    <div class="msg_meta">
-      <div class="msg_badge" aria-hidden="true">
-        <span class="msg_badge_icon">💬</span>
+<section class="chat-container" aria-label="Chat UI">
+  <!-- 메타, 시간 포함 왼쪽 말풍선 -->
+  <div class="message left">
+    <!-- 챗봇 말풍선에만 메타 표시 -->
+    <div class="meta">
+      <div class="badge" aria-hidden="true">
+        <!-- 챗봇 아이콘 -->
+        <span class="badge-icon">💬</span>
       </div>
-      <span class="msg_meta_text">Livechat</span>
+      <span class="meta-text">Livechat</span>
     </div>
 
-    <!-- pill bubble -->
-    <div class="msg_row">
-      <div class="msg_bubble msg_bubble_pill">Hello Nice</div>
-    </div>
-
-    <!-- big bubble + time -->
-    <div class="msg_row msg_row_with_time">
-      <div class="msg_bubble msg_bubble_card">
-        Welcome to LiveChat<br />
-        I was made with . Pick a<br />
-        topic from the list or type<br />
-        down a question!
+    <div class="message-group">
+      <div class="message-row">
+        <div class="bubble pill">Hello Nice</div>
       </div>
-      <span class="msg_time">02:12 PM</span>
+
+      <!-- 시간 포함 왼쪽 말풍선 -->
+      <div class="message-row">
+        <!-- 전송 내용 -->
+        <div class="bubble card">
+          Welcome to LiveChat<br />
+          I was made with. Pick a<br />
+          topic from the list or type<br />
+          down a question!
+        </div>
+        <!-- 전송 시각 -->
+        <span class="time">02:12 PM</span>
+      </div>
     </div>
   </div>
 
-  <!-- RIGHT MESSAGE -->
-  <div class="msg_right">
-    <span class="msg_time">02:12 PM</span>
-    <div class="msg_bubble msg_bubble_right">Welcome</div>
+  <!-- 시간 포함 오른쪽 말풍선 -->
+  <div class="message right">
+    <div class="message-row">
+      <!-- 전송 시각 -->
+      <span class="time">02:12 PM</span>
+      <!-- 전송 내용 -->
+      <div class="bubble">Welcome</div>
+    </div>
   </div>
 </section>
