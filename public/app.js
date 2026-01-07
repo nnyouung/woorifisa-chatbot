@@ -17,7 +17,15 @@ function addBubble(message, sender) {
   });
 
   chatArea.insertAdjacentHTML("beforeend", html);
-  chatArea.scrollTop = chatArea.scrollHeight;
+
+  const last = chatArea.lastElementChild;
+  last.classList.add("is-new");
+
+  requestAnimationFrame(() => {
+    last.classList.add("is-show");
+  });
+
+  chatArea.scrollTo({ top: chatArea.scrollHeight, behavior: "smooth" });
 }
 
 sendButton.addEventListener("click", async () => {
@@ -32,7 +40,8 @@ sendButton.addEventListener("click", async () => {
     body: JSON.stringify({ message }),
   });
 
-  hero.style.opacity = "0";
+  hero.classList.add("is-hiding");
+  hero.addEventListener("transitionend", () => hero.remove(), { once: true });
 
   const data = await clovaResponse.json();
 
