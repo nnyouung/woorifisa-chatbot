@@ -4,15 +4,6 @@ const input = document.getElementById("chatInput");
 const sendButton = document.getElementById("sendButton");
 const chatArea = document.getElementById("chatArea");
 
-function getUserId() {
-  let id = localStorage.getItem("clova_user_id");
-  if (!id) {
-    id = crypto.randomUUID();
-    localStorage.setItem("clova_user_id", id);
-  }
-  return id;
-}
-
 function renderClovaBubbles(bubbles = []) {
   // 일단 text만 처리 (다른 타입은 필요하면 추가)
   bubbles.forEach((b) => {
@@ -23,20 +14,21 @@ function renderClovaBubbles(bubbles = []) {
 }
 
 window.addEventListener("DOMContentLoaded", async () => {
-  try {
-    const userId = getUserId();
+   const res = await fetch("/chat/open", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({}),
+  });
 
-    const res = await fetch("/chat/open", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ userId }),
-    });
-
-    const data = await res.json();
-    renderClovaBubbles(data.bubbles);
-  } catch (e) {
-    console.error("open error:", e);
+  if (!res.ok) {
+    const t = await res.text();
+    console.log("open failed:", res.status, t);
+    return;
   }
+
+  const data = await res.json();
+  console.log("open data:", data);
+  renderClovaBubbles(data.bubbles);
 });
 
 function addBubble(message, sender) {
