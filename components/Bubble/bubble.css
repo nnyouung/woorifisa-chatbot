@@ -1,30 +1,81 @@
-.bubble {
+:root{
+  --badge-size: 38px;
+  --meta-gap: 10px;
+  --bubble-indent: calc(var(--badge-size) + var(--meta-gap) + 30px); /* 말풍선이 시작할 X */
+}
+
+.chat{
+  padding: 28px 24px;
+  background: rgb(243, 243, 243);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;
+}
+
+/* ✅ 무조건 위(메타) / 아래(버블) 구조로 고정 */
+.msg_left{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* 왼쪽 정렬 */
+  gap: 5px;                 /* meta ↔ bubble 간격 */
+  width: 100%;
+}
+
+/* meta 라인 */
+.msg_meta{
+  display: inline-flex;
+  align-items: center;
+  gap: var(--meta-gap);
+  margin-left: 6px;
+}
+
+.msg_badge{
+  width: var(--badge-size);
+  height: var(--badge-size);
+  border-radius: 999px;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  border: 1px solid #c8c8c8;
+}
+
+.msg_badge-icon{ font-size: 18px; line-height: 1; }
+
+.msg_badge-text{
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 16px;
+}
+
+.msg_row{
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 18px;
+  margin-left: var(--bubble-indent); 
+}
+
+/* bubble */
+.bubble_left{
+    padding: 20px 44px;
+    border-radius: 999px;
+    background: #fff;
+    color: #000000;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.time{
+  color: rgba(120,140,160,.85);
+  font-size: 14px;
+  line-height: 1;    
+  transform: none;     
+}
+
+.bubble_right {
   position: relative;
+  display: inline-block;
   max-width: 240px;
-  padding: 12px 16px;
-  border-radius: 12px;
-  background-color: #333;
+  padding: 12px 18px;
+  background-color: #0067AC; /* 말풍선 색 */
   color: #fff;
   font-size: 14px;
-  line-height: 1.4;
-}
-
-/* 왼쪽 */
-.bubble.left {
-  top: 50%;
-  left: -8px;
-  transform: translateY(-50%);
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-right: 8px solid #333;
-}
-
-/* 오른쪽 */
-.bubble.right {
-  top: 50%;
-  right: -8px;
-  transform: translateY(-50%);
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-left: 8px solid #333;
+  line-height: 1.4; /* 줄 간격 */
+  border-radius: 22px 2px 22px 22px;
 }
