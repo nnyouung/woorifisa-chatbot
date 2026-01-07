@@ -1,81 +1,142 @@
-:root{
-  --badge-size: 38px;
-  --meta-gap: 10px;
-  --bubble-indent: calc(var(--badge-size) + var(--meta-gap) + 30px); /* 말풍선이 시작할 X */
-}
-
-.chat{
+.msg_chat{
   padding: 28px 24px;
-  background: rgb(243, 243, 243);
+  background: #f3f3f3;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;
+
+  /* tokens */
+  --msg_badge_size: 38px;
+  --msg_meta_gap: 10px;
+  --msg_indent: calc(var(--msg_badge_size) + var(--msg_meta_gap) + 30px);
+
+  --msg_border: 1px solid #dedede;
+  --msg_shadow: 0 10px 24px rgba(0,0,0,.12);
+
+  --msg_left_text: #6b7280;
+  --msg_time_color: rgba(120,140,160,.85);
+  --msg_right_bg: #0067ac;
 }
 
-/* ✅ 무조건 위(메타) / 아래(버블) 구조로 고정 */
-.msg_left{
+/* =========================
+   LEFT GROUP
+========================= */
+.msg_chat .msg_left{
   display: flex;
   flex-direction: column;
-  align-items: flex-start;   /* 왼쪽 정렬 */
-  gap: 5px;                 /* meta ↔ bubble 간격 */
+  align-items: flex-start;
+  gap: 10px;
   width: 100%;
 }
 
-/* meta 라인 */
-.msg_meta{
+/* meta line */
+.msg_chat .msg_meta{
   display: inline-flex;
   align-items: center;
-  gap: var(--meta-gap);
+  gap: var(--msg_meta_gap);
   margin-left: 6px;
 }
 
-.msg_badge{
-  width: var(--badge-size);
-  height: var(--badge-size);
+.msg_chat .msg_badge{
+  width: var(--msg_badge_size);
+  height: var(--msg_badge_size);
   border-radius: 999px;
-  background: #ffffff;
+  background: #fff;
   display: grid;
   place-items: center;
-  border: 1px solid #c8c8c8;
+  border: var(--msg_border);
 }
 
-.msg_badge-icon{ font-size: 18px; line-height: 1; }
+.msg_chat .msg_badge_icon{
+  font-size: 18px;
+  line-height: 1;
+}
 
-.msg_badge-text{
-  color: rgba(0, 0, 0, 0.85);
+.msg_chat .msg_meta_text{
+  color: rgba(0,0,0,.85);
   font-size: 16px;
 }
 
-.msg_row{
+/* message row */
+.msg_chat .msg_row{
   display: inline-flex;
+  align-items: flex-end; /* bubble + time bottom aligned */
+  gap: 18px;
+  margin-left: var(--msg_indent);
+}
+
+.msg_chat .msg_row_with_time{
+  align-items: flex-end;
+}
+
+/* time */
+.msg_chat .msg_time{
+  color: var(--msg_time_color);
+  font-size: 14px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* =========================
+   BUBBLES (base)
+========================= */
+.msg_chat .msg_bubble{
+  background: #fff;
+  border: var(--msg_border);
+}
+
+/* left pill bubble */
+.msg_chat .msg_bubble_pill{
+  padding: 20px 46px;
+  border-radius: 999px;
+  color: var(--msg_left_text);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.15;
+  max-width: 420px;
+}
+
+/* left big bubble (corner tuning) */
+.msg_chat .msg_bubble_card{
+  position: relative;
+  max-width: 540px;
+  padding: 26px 34px;
+
+  color: var(--msg_left_text);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.45;
+
+  /* 꼭짓점/코너 튜닝 (스샷 느낌) */
+  border-radius: 28px;               /* 기본 */
+  border-top-left-radius: 32px;      /* 위는 더 둥글게 */
+  border-top-right-radius: 32px;
+
+  border-bottom-right-radius: 32px;  /* 오른쪽 아래 더 둥글 */
+  border-bottom-left-radius: 16px;   /* 왼쪽 아래 덜 둥글 → 살짝 “각” 느낌 */
+}
+
+/* =========================
+   RIGHT MESSAGE
+========================= */
+.msg_chat .msg_right{
+  display: flex;
+  justify-content: flex-end;
   align-items: flex-end;
   gap: 18px;
-  margin-left: var(--bubble-indent); 
+  width: 100%;
+  margin-top: 46px;
 }
 
-/* bubble */
-.bubble_left{
-    padding: 20px 44px;
-    border-radius: 999px;
-    background: #fff;
-    color: #000000;
-    font-size: 26px;
-    font-weight: 500;
-}
+/* right bubble */
+.msg_chat .msg_bubble_right{
+  padding: 20px 34px;
+  border-radius: 999px;
 
-.time{
-  color: rgba(120,140,160,.85);
-  font-size: 14px;
-  line-height: 1;    
-  transform: none;     
-}
+  background: var(--msg_right_bg);
+  border: none;
 
-.bubble_right {
-  position: relative;
-  display: inline-block;
-  max-width: 240px;
-  padding: 12px 18px;
-  background-color: #0067AC; /* 말풍선 색 */
   color: #fff;
-  font-size: 14px;
-  line-height: 1.4; /* 줄 간격 */
-  border-radius: 22px 2px 22px 22px;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.15;
+  max-width: 520px;
 }

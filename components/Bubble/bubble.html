@@ -1,22 +1,35 @@
 <link rel="stylesheet" href="bubble.css" />
 
-<div class="chat">
+<section class="msg_chat" aria-label="Chat UI">
+  <!-- LEFT GROUP -->
   <div class="msg_left">
     <div class="msg_meta">
-      <div class="msg_badge">
-        <span class="msg_badge-icon" aria-hidden="true">💬</span>
+      <div class="msg_badge" aria-hidden="true">
+        <span class="msg_badge_icon">💬</span>
       </div>
-      <span class="msg_badge-text">Livechat</span>
+      <span class="msg_meta_text">Livechat</span>
     </div>
 
+    <!-- pill bubble -->
     <div class="msg_row">
-      <div class="bubble_left">안녕하세요 !</div>
-      <span class="time">02:12 PM</span>
+      <div class="msg_bubble msg_bubble_pill">Hello Nice</div>
+    </div>
+
+    <!-- big bubble + time -->
+    <div class="msg_row msg_row_with_time">
+      <div class="msg_bubble msg_bubble_card">
+        Welcome to LiveChat<br />
+        I was made with . Pick a<br />
+        topic from the list or type<br />
+        down a question!
+      </div>
+      <span class="msg_time">02:12 PM</span>
     </div>
   </div>
 
+  <!-- RIGHT MESSAGE -->
   <div class="msg_right">
-      <span class="time">02:12 PM</span>
-      <div class="bubble_right">예금 상품 추천해줘.</div>
+    <span class="msg_time">02:12 PM</span>
+    <div class="msg_bubble msg_bubble_right">Welcome</div>
   </div>
-</div>
+</section>
