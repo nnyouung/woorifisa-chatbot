@@ -22,9 +22,13 @@ app.use(json());
 
 app.post("/chat", async (request, response) => {
   try {
+    console.log("request.body:", request.body);
+    console.log("message:", request.body?.message);
+    console.log("message type:", typeof request.body?.message);
     const { message } = request.body || {};
 
     const bodyToClova = {
+      version: "v2",
       userId: "1",
       bubbles: [
         {
@@ -50,7 +54,7 @@ app.post("/chat", async (request, response) => {
 
     //  {
     //   "userId": "{userId}",
-    //   "timestamp": 1664169457884,
+    //   "timestamp": 1664169457884, // 사람이 읽도록 바꿔야 함
     //   "bubbles": [
     //     {
     //       "type": "text",
@@ -61,6 +65,8 @@ app.post("/chat", async (request, response) => {
     //  }
 
     const responseData = await clovaResponse.json();
+
+    console.log("clova response:", responseData);
 
     const botMessage = responseData?.bubbles[0]?.data?.description;
     const botTimestamp = responseData?.timestamp;
