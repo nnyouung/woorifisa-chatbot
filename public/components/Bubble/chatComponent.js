@@ -5,6 +5,7 @@ export function createChatMessage(msg) {
   const isLeft = msg.side === "left";
 
   return `
+    <link rel="stylesheet" href="/components/Bubble/bubble.css" />
     <div class="message ${isLeft ? "left" : "right"}">
       ${
         isLeft
