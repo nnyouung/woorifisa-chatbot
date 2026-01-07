@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Woorifisa-chatbot</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Afacad:wght@400;500;600;700&family=Gowun+Dodum&display=swap"
       rel="stylesheet"
@@ -17,26 +17,24 @@
   </head>
   <body>
     <div class="chat-app">
-      <header class="chat-header">
-        <div class="icon">
-          <img src="./icons/clova_icon.png" alt="chat icon" />
-        </div>
-
-        <div class="header-text">
-          <div class="title">Chatbot</div>
-          <div class="subtitle">Support Agent</div>
-        </div>
-      </header>
 
       <main class="chat-area" id="chatArea" role="log" aria-live="polite">
+        <!-- 초기 히어로 화면 -->
+         <section class="empty-hero" id="emptyHero" aria-hidden="true">
+          <div class="sparkle">✦</div>
+          <h1>Ask our AI anything</h1>
+        </section>
+        <!-- JS에서 여기에 첫 AI 메시지 추가 -->
         <!-- 말풍선 컴포넌트 자리 -->
       </main>
 
       <footer class="input-area">
-        <input type="text" placeholder="메시지를 입력하세요" id="chatInput" />
-        <button type="button" aria-label="send" id="sendButton">
-          <img src="./icons/send_icon.png" alt="" />
-        </button>
+        <div class="input-row">
+          <input type="text" placeholder="메시지를 입력하세요" id="chatInput" />
+          <button type="button" aria-label="send" id="sendButton">
+            <img src="./icons/send_icon.png" alt="send" />
+          </button>
+        </div>
       </footer>
     </div>
   </body>
