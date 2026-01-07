@@ -3,6 +3,7 @@ import { createChatMessage } from "./components/Bubble/chatComponent.js";
 const input = document.getElementById("chatInput");
 const sendButton = document.getElementById("sendButton");
 const chatArea = document.getElementById("chatArea");
+const hero = document.getElementById("emptyHero");
 
 function renderClovaBubbles(bubbles = []) {
   // 일단 text만 처리 (다른 타입은 필요하면 추가)
@@ -43,7 +44,15 @@ function addBubble(message, sender) {
   });
 
   chatArea.insertAdjacentHTML("beforeend", html);
-  chatArea.scrollTop = chatArea.scrollHeight;
+
+  const last = chatArea.lastElementChild;
+  last.classList.add("is-new");
+
+  requestAnimationFrame(() => {
+    last.classList.add("is-show");
+  });
+
+  chatArea.scrollTo({ top: chatArea.scrollHeight, behavior: "smooth" });
 }
 
 sendButton.addEventListener("click", async () => {
@@ -57,6 +66,9 @@ sendButton.addEventListener("click", async () => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message }),
   });
+
+  hero.classList.add("is-hiding");
+  hero.addEventListener("transitionend", () => hero.remove(), { once: true });
 
   const data = await clovaResponse.json();
 
