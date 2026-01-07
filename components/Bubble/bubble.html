@@ -1,14 +1,44 @@
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Chat Bubble</title>
-    <link rel="stylesheet" href="bubble.css" />
-  </head>
-  <body>
-    <div class="chat-message right">
-      <span class="time">10:32</span>
-      <div class="bubble">안녕하세요 🙂</div>
+<link rel="stylesheet" href="bubble.css" />
+
+<section class="chat-container" aria-label="Chat UI">
+  <!-- 메타, 시간 포함 왼쪽 말풍선 -->
+  <div class="message left">
+    <!-- 챗봇 말풍선에만 메타 표시 -->
+    <div class="meta">
+      <div class="badge" aria-hidden="true">
+        <!-- 챗봇 아이콘 -->
+        <span class="badge-icon">💬</span>
+      </div>
+      <span class="meta-text">Livechat</span>
     </div>
-  </body>
-</html>
+
+    <div class="message-group">
+      <div class="message-row">
+        <div class="bubble pill">Hello Nice</div>
+      </div>
+
+      <!-- 시간 포함 왼쪽 말풍선 -->
+      <div class="message-row">
+        <!-- 전송 내용 -->
+        <div class="bubble card">
+          Welcome to LiveChat<br />
+          I was made with. Pick a<br />
+          topic from the list or type<br />
+          down a question!
+        </div>
+        <!-- 전송 시각 -->
+        <span class="time">02:12 PM</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 시간 포함 오른쪽 말풍선 -->
+  <div class="message right">
+    <div class="message-row">
+      <!-- 전송 시각 -->
+      <span class="time">02:12 PM</span>
+      <!-- 전송 내용 -->
+      <div class="bubble">Welcome</div>
+    </div>
+  </div>
+</section>

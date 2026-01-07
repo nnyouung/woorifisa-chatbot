@@ -1,23 +1,93 @@
-.bubble_right {
-  position: relative;
+/* 전체 컨테이너: 메시지들을 수직으로 나열 */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+/* 개별 메시지: 양 끝으로 밀기 */
+.message {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px; /* 메시지 간 간격 */
+}
+
+.message.left {
+  align-items: flex-start; /* 왼쪽 정렬 */
+}
+
+.message.right {
+  align-items: flex-end; /* 오른쪽 정렬 */
+}
+
+/* 메타 정보 (뱃지) */
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.badge {
+  background: #f0f0f0;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+/* 메시지 로우 설정 */
+.message-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+/* 공통 말풍선 스타일 */
+.bubble {
   display: inline-block;
-  max-width: 240px;
+  position: relative;
+  max-width: 400px; /* 가독성을 위해 너비 제한 */
   padding: 12px 18px;
-  background-color: #0067ac; /* 말풍선 색 */
-  color: #fff;
+  border-radius: 20px;
   font-size: 14px;
+  font-weight: 500;
   line-height: 1.4; /* 줄 간격 */
+  word-break: break-word;
+}
+
+/* 왼쪽 말풍선 */
+.message.left .bubble {
+  background: #fff;
+  border: 1px solid #dedede;
+  color: #4b5563;
+  border-radius: 2px 22px 22px 22px;
+}
+
+/* 오른쪽 말풍선 */
+.message.right .bubble {
+  background: #0067ac;
+  color: #fff;
   border-radius: 22px 2px 22px 22px;
 }
 
-/* 전송 시각 표시 */
-.time {
-  margin-top: 4px;
-  font-size: 11px;
-  color: #999;
-  line-height: 1;
-  white-space: nowrap; /* 줄바꿈 금지 */
+/* 변형 스타일 (Pill, Card) */
+.bubble.pill {
+  border-radius: 999px;
+}
 
-  position: relative; /* 위치 조정 */
-  top: 15px;
+.bubble.card {
+  border-radius: 20px;
+  border-bottom-left-radius: 4px;
+}
+
+/* 시간 스타일 */
+.time {
+  color: #94a3b8;
+  font-size: 12px;
+  margin-bottom: 4px;
 }
