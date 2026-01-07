@@ -1,6 +1,7 @@
 import express, { json } from "express";
 import crypto from "crypto";
 import dotenv from "dotenv";
+import { request } from "http";
 
 dotenv.config();
 const app = express();
@@ -19,6 +20,39 @@ function makeSignature(requestBodyString, secretKey) {
 
 app.use(express.static("public"));
 app.use(json());
+
+app.post("/chat/open", async (req, res) => {
+  try {
+    const bodyToClova = {
+      version: "v2",
+      userId: "1",
+      bubbles: [],       
+      timestamp: Date.now(),
+      event: "open",
+    };
+
+    const requestBodyString = JSON.stringify(bodyToClova);
+    const signature = makeSignature(requestBodyString, SECRET_KEY);
+
+    const clovaResponse = await fetch(INVOKE_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        "X-NCP-CHATBOT_SIGNATURE": signature,
+      },
+      body: requestBodyString,
+    });
+
+    const responseData = await clovaResponse.json();
+    console.log("clova open response:", responseData);
+
+    return res.json(responseData); // bubbles 통째로 넘기는 게 가장 편함
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: error.message });
+  }
+});
+
 
 app.post("/chat", async (request, response) => {
   try {
@@ -48,18 +82,6 @@ app.post("/chat", async (request, response) => {
       },
       body: requestBodyString,
     });
-
-    //  {
-    //   "userId": "{userId}",
-    //   "timestamp": 1664169457884, // 사람이 읽도록 바꿔야 함
-    //   "bubbles": [
-    //     {
-    //       "type": "text",
-    //       "data": {
-    //         "description": "Chatbot Answer",
-    //       }}
-    //    ]
-    //  }
 
     const responseData = await clovaResponse.json();
 
