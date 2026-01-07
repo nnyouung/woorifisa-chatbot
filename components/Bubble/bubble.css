@@ -1,0 +1,30 @@
+.bubble {
+  position: relative;
+  max-width: 240px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background-color: #333;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* 왼쪽 */
+.bubble.left {
+  top: 50%;
+  left: -8px;
+  transform: translateY(-50%);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid #333;
+}
+
+/* 오른쪽 */
+.bubble.right {
+  top: 50%;
+  right: -8px;
+  transform: translateY(-50%);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid #333;
+}
