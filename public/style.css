@@ -51,16 +51,17 @@ body {
 
   background:
     /* 핑크 */
-    radial-gradient(800px 600px at calc(50% + 140px) 72%,
-      rgba(255, 134, 225, 0.55) 0%,
-      rgba(255, 134, 225, 0.35) 35%,
-      rgba(255, 134, 225, 0.00) 70%),
+    radial-gradient(800px 600px at calc(50% - 140px) 72%,
+      rgba(253, 216, 1, .55) 0%,
+      rgba(253, 216, 1, .35) 35%,
+      rgba(253, 216, 1, .00) 70%),
 
     /* 블루 */
-    radial-gradient(800px 600px at calc(50% - 140px) 72%,
-      rgba(137, 188, 255, 0.55) 0%,
-      rgba(137, 188, 255, 0.35) 35%,
-      rgba(137, 188, 255, 0.00) 70%),
+    radial-gradient(800px 600px at calc(50% + 140px) 72%,
+      rgba(99, 191, 238, 0.55) 0%,
+      rgba(99, 191, 238, 0.35) 35%,
+      rgba(99, 191, 238, 0.00) 70%),
+
 
     /* 베이스 화이트 */
     linear-gradient(180deg,
