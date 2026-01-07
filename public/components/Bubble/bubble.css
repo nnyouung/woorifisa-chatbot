@@ -34,9 +34,26 @@
 }
 
 .badge {
-  background: #f0f0f0;
-  padding: 4px 8px;
-  border-radius: 8px;
+  background: #ffffff;
+  padding: 4px 4px;
+  border-radius: 4px;
+}
+
+/* wibee 아이콘 넣기 */
+.badge-icon{
+  width: 26px;
+  height: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge-icon img{
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  display: block;
 }
 
 /* 메시지 로우 설정 */
@@ -58,21 +75,23 @@
   font-weight: 500;
   line-height: 1.4; /* 줄 간격 */
   word-break: break-word;
+
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 /* 왼쪽 말풍선 */
-.message.left .bubble {
-  background: #fff;
-  border: 1px solid #dedede;
-  color: #4b5563;
-  border-radius: 2px 22px 22px 22px;
+.message.right .bubble {
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(220, 220, 220, 0.55);
 }
 
 /* 오른쪽 말풍선 */
-.message.right .bubble {
-  background: #0067ac;
-  color: #fff;
-  border-radius: 22px 2px 22px 22px;
+.message.left .bubble {
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(220, 220, 220, 0.55);
 }
 
 /* 변형 스타일 (Pill, Card) */

@@ -45,22 +45,38 @@ body {
   z-index: 0;
   content: "";
   position: absolute;
+  inset: -10%;
   pointer-events: none;
-  inset: 0;
   z-index: 0;
 
   background:
     /* 핑크 */
-    radial-gradient(680px 540px at calc(50% - 120px) 88%,
-      rgba(255, 188, 223, 0.60) 0%,
-      rgba(255, 188, 223, 0.00) 62%),
+    radial-gradient(
+      800px 600px
+      at calc(50% - 140px) 72%,
+      rgba(255, 134, 225, 0.55) 0%,
+      rgba(255, 134, 225, 0.35) 35%,
+      rgba(255, 134, 225, 0.00) 70%
+    ),
 
     /* 블루 */
-    radial-gradient(680px 540px at calc(50% + 120px) 88%,
-      rgba(165, 185, 255, 0.60) 0%,
-      rgba(165, 185, 255, 0.00) 62%);
+    radial-gradient(
+      800px 600px
+      at calc(50% + 140px) 72%,
+      rgba(137, 188, 255, 0.55) 0%,
+      rgba(137, 188, 255, 0.35) 35%,
+      rgba(137, 188, 255, 0.00) 70%
+    ),
 
-  filter: blur(26px);
+    /* 베이스 화이트 */
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,1) 0%,
+      rgba(255,255,255,0.98) 40%,
+      rgba(255,255,255,0.94) 100%
+    );
+
+  filter: blur(22px);
   opacity: 1;
 }
 
