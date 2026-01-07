@@ -41,8 +41,8 @@ body {
   flex-direction: column;
 }
 
-/* 원 2개 + blur */
 .chat-app::before {
+  z-index: 0;
   content: "";
   position: absolute;
   pointer-events: none;
@@ -60,16 +60,12 @@ body {
       rgba(165, 185, 255, 0.60) 0%,
       rgba(165, 185, 255, 0.00) 62%);
 
-  /* 베이스 화이트 */
-  /*linear-gradient(
-      180deg,
-      rgba(255,255,255,1) 0%,
-      rgba(255,255,255,1) 45%,
-      rgba(255,255,255,0.92) 100%
-    );*/
-
   filter: blur(26px);
   opacity: 1;
+}
+
+.chat-app>* {
+  z-index: 1;
 }
 
 .chat-area {
