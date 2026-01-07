@@ -15,7 +15,7 @@ function renderClovaBubbles(bubbles = []) {
 }
 
 window.addEventListener("DOMContentLoaded", async () => {
-   const res = await fetch("/chat/open", {
+  const res = await fetch("/chat/open", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({}),
@@ -36,7 +36,7 @@ function addBubble(message, sender) {
   const html = createChatMessage({
     side: sender === "me" ? "right" : "left",
     content: message,
-    senderName: sender === "me" ? null : "AI Chat",
+    senderName: sender === "me" ? null : "WIBEE",
     time: new Date().toLocaleTimeString("ko-KR", {
       hour: "2-digit",
       minute: "2-digit",
