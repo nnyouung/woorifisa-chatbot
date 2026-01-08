@@ -143,6 +143,4 @@ http://localhost:3000
 <br>
 
 ## 🍯 Improvements
-- 챗봇 응답 로딩 상태 표시
-- 중복 전송 방지: 전송 중 버튼 disabled + Enter 연타 방지
 - 질문 추천 기능(Prompt Suggestions) 추가
