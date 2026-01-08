@@ -143,4 +143,5 @@ http://localhost:3000
 <br>
 
 ## 🍯 Improvements
-- 질문 추천 기능(Prompt Suggestions) 추가
+- 질문 추천 기능(Prompt Suggestions)
+- 답변 작성용 관리자 페이지
