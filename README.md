@@ -5,6 +5,7 @@ Express 서버를 통해 CLOVA Chatbot Custom API와 통신하는 웹 기반 챗
 <br>
 
 ## 🍯 Demo
+<img width="1440" height="681" alt="스크린샷 2026-01-07 18 18 05" src="https://github.com/user-attachments/assets/e8092dc7-f671-4f51-985f-186023d485f6" />
 
 <br>
 
